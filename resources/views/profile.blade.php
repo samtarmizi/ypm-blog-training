@@ -9,6 +9,8 @@
 
                 <div class="card-body">
                     My Name is  {{ auth()->user()->name }}
+                    <br>
+                    My Email is {{ auth()->user()->email }}
                 </div>
             </div>
         </div>
