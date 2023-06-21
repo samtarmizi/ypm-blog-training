@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,8 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // query from DB using model total number of users
+        $total_users = User::count();
+
+        // query from DB using model total number of transactions
+        $total_transactions = \App\Models\Transaction::count();
+
         // resources/views/home.blade.php
-        return view('home');
+        return view('home', compact(['total_users', 'total_transactions']));
     }
 
     public function profile()

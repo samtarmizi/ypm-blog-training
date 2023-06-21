@@ -15,6 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <br>
+                    Total User: {{ $total_users }}
+                    <br>
+                    Total Transactions: {{ $total_transactions }}
                 </div>
             </div>
         </div>

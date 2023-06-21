@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profile',[App\Http\Controllers\HomeController::class,'profile']);
 
+Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index']);
