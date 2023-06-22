@@ -14,6 +14,7 @@
                                 <th>Transaction ID</th>
                                 <th>Name</th>
                                 <th>Amount</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,6 +23,17 @@
                                 <td>{{ $transaction->id }}</td>
                                 <td>{{ $transaction->name }}</td>
                                 <td>{{ $transaction->amount }}</td>
+                                <td>
+                                    <a href="/transactions/{{ $transaction->id }}" class="btn btn-primary">Show</a>
+
+                                    <a href="/transactions/{{ $transaction->id }}/edit" class="btn btn-success">Edit</a>
+                                    
+                                    <a onclick="return confirm('Are you sure?')" 
+                                        href="/transactions/{{ $transaction->id }}/destroy" 
+                                        class="btn btn-danger">
+                                        Destroy
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
