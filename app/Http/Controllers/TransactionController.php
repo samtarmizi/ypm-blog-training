@@ -31,7 +31,10 @@ class TransactionController extends Controller
         $transaction->user_id = auth()->user()->id;
         $transaction->save();
 
-        return redirect()->to('/transactions');
+        return redirect()->to('/transactions')->with([
+            'alert-type' => 'alert-primary',
+            'alert' => 'Your transactions has been created!'
+        ]);
     }
 
     public function show(Transaction $transaction)
@@ -52,13 +55,19 @@ class TransactionController extends Controller
         $transaction->amount = $request->amount;
         $transaction->save();
 
-        return redirect()->to('/transactions');
+        return redirect()->to('/transactions')->with([
+            'alert-type' => 'alert-success',
+            'alert' => 'Your transactions has been updated!'
+        ]);
     }
 
     public function destroy(Transaction $transaction)
     {
         $transaction->delete();
 
-        return redirect()->to('/transactions');
+        return redirect()->to('/transactions')->with([
+            'alert-type' => 'alert-danger',
+            'alert' => 'Your transactions has been deleted!'
+        ]);
     }
 }
