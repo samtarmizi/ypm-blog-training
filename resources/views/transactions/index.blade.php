@@ -16,6 +16,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Owner</th>
                                 <th>Transaction ID</th>
                                 <th>Name</th>
                                 <th>Amount</th>
@@ -25,6 +26,7 @@
                         <tbody>
                             @foreach($transactions as $transaction)
                             <tr>
+                                <td>{{ $transaction->user->name }} - {{ $transaction->user->email }}</td>
                                 <td>{{ $transaction->id }}</td>
                                 <td>{{ $transaction->name }}</td>
                                 <td>{{ $transaction->amount }}</td>

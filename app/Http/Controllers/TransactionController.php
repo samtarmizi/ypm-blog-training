@@ -10,7 +10,11 @@ class TransactionController extends Controller
     public function index()
     {
         // query all transactions from database
-        $transactions = Transaction::all();
+        // $transactions = Transaction::all();
+
+        // query from auth user transactions
+        $user = auth()->user();
+        $transactions = $user->transactions;
         
         // return to view resources/views/transactions/index.blade.php
         return view('transactions.index', compact(['transactions']));
